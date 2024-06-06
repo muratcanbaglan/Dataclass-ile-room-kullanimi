@@ -1,0 +1,10 @@
+package com.murat.yemekkitabi.roomdb // Bu kod, 'com.murat.yemekkitabi.roomdb' isimli pakette bulunan dosyaya ait
+
+import androidx.room.Database // Android Room kütüphanesinden 'Database' sınıfını içeri aktarır
+import androidx.room.RoomDatabase // Android Room kütüphanesinden 'RoomDatabase' sınıfını içeri aktarır
+import com.murat.yemekkitabi.model.Tarif // 'Tarif' veri modelini içeri aktarır
+
+@Database(entities = [Tarif::class], version = 1) // Bu sınıfın bir Room veritabanı olduğunu ve 'Tarif' sınıfını içerdiğini belirtir. Veritabanı şeması versiyonunu 1 olarak ayarlar.
+abstract class TarifDatabase : RoomDatabase() { // 'TarifDatabase' adında soyut bir sınıf tanımlar ve bu sınıf 'RoomDatabase'den türetilmiştir.
+    abstract fun tarifDao(): TarifDAO // 'TarifDAO' adında bir DAO (Data Access Object) döndüren soyut bir fonksiyon tanımlar.
+}
