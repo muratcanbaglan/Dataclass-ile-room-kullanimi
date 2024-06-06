@@ -1,0 +1,22 @@
+package com.murat.yemekkitabi.model // Bu kod, 'com.murat.yemekkitabi.model' isimli pakette bulunan dosyaya ait
+
+import androidx.room.ColumnInfo // Android Room kütüphanesinden 'ColumnInfo' sınıfını içeri aktarır
+import androidx.room.Entity // Android Room kütüphanesinden 'Entity' sınıfını içeri aktarır
+import androidx.room.PrimaryKey // Android Room kütüphanesinden 'PrimaryKey' sınıfını içeri aktarır
+
+@Entity // Bu sınıfın bir Room veritabanı tablosu olduğunu belirtir
+data class Tarif( // 'Tarif' adında bir data sınıfı tanımlar
+
+    @ColumnInfo(name = "isim") // 'isim' adında bir sütun tanımlar
+    var isim : String, // Tarifin adını tutacak olan değişken
+
+    @ColumnInfo(name = "malzeme") // 'malzeme' adında bir sütun tanımlar
+    var malzeme : String, // Tarifin malzemelerini tutacak olan değişken
+
+    @ColumnInfo(name = "gorsel") // 'gorsel' adında bir sütun tanımlar
+    var gorsel : ByteArray // Tarifin görselini tutacak olan byte dizisi değişkeni
+
+) {
+    @PrimaryKey(autoGenerate = true) // Tablonun birincil anahtarının otomatik artırma özelliğine sahip olduğunu belirtir
+    var id = 0 // Tarifin benzersiz kimliğini tutacak olan değişken, otomatik artırılır
+}
